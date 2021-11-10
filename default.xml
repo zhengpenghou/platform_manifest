@@ -7,15 +7,18 @@
     See go/side-branch-testing for details.
 -->
   <remote  name="aosp"
-           fetch=".."
+           fetch="https://android.googlesource.com/"
            review="https://android-review.googlesource.com/"/>
+  <remote  name="android-rust"
+	       fetch="../zhengpenghou"
+           review="" />
   <default revision="master"
            remote="aosp"
            sync-j="4"/>
 
   <!-- Rust Toolchain Components -->
   <project path="toolchain/rustc" name="toolchain/rustc"/>
-  <project path="toolchain/android_rust" name="toolchain/android_rust"/>
+  <project path="toolchain/android_rust" remote="android-rust" name="android_rust"/>
 
   <!-- Other Toolchains -->
   <project path="prebuilts/clang/host/linux-x86" name="platform/prebuilts/clang/host/linux-x86" clone-depth="1"/>
